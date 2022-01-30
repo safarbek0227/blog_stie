@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container p-5">
+    <div class="card bg-yellow">
+        <div class="card-content">
+            <div class="title">
+                    {{Post.title}}
+            </div>
+            <hr>
+            <div class="content is-size-5 mt-5">
+                {{Post.post}}
+            </div>
+            <hr>
+            <ul class="is-size-5">
+                <li>like <i class="fas fa-heart text-danger"></i>:</li>
+                <li>comment <i class="fas fa-eye text-primary"></i>:</li>
+            </ul>
+           </div>
+    
+    
+        <section class="card-footer dark">
+    
+            <a class="card-footer-item" id="up" onclick="">
+                <span class="button bg-yellow has-text-dark">
+                    <i class="fas fa-thumbs-up  is-size-4 text-blue"></i>
+                </span>
+            </a>
+    
+            <a class="card-footer-item" id="down" onclick="">
+                <span class="button bg-yellow has-text-dark">
+                    <i class="fas fa-thumbs-down  is-size-4 text-orange"></i>
+                </span>
+            </a>
+    
+        </section>
+    
+    </div>
+</div>
+{% endblock %}

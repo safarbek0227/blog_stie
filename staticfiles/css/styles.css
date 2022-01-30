@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap");
+*{
+    font-family: 'Segoe Print';
+}
+body{
+    background-color: #1A1A1A;
+    color: #FBCE01;
+    min-height: 100vh !important;
+}
+.dark{
+    background-color: #1A1A1A !important;
+}
+.bg-yellow{
+    background-color: #FBCE01;
+    color: #1A1A1A;
+}
+nav{
+    padding: 15px;
+    background-color: #FBCE01 !important;  
+    border-bottom: #1a1a1a11 3px solid; 
+}
+nav .nav-item .nav-link{
+    font-size: x-large;
+    font-family:Segoe Print;  /* Segoe Script;*/
+    color: #1A1A1A !important;
+}
+.about{
+    margin-top: 10vh;
+    width: 100vw;
+    height: 50vh;
+}
+.about .content{
+    justify-content: center;
+}
+footer{
+    background-color: #FBCE01 !important;
+}
