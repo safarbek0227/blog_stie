@@ -5,6 +5,7 @@ from .views import *
 
 app_name = "main"
 urlpatterns = [
-    path('', homeView.as_view(), name='Blog'),
-    path('post/<slug>/', postView, name= 'post')
+    path('', HomeView.as_view(), name='Blog'),
+    path('post/<slug>/', PostView, name= 'post'),
+    path('tag/<slug>/', TagView, name='tag')
 ]

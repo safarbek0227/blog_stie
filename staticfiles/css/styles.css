@@ -14,6 +14,10 @@ body{
     background-color: #FBCE01;
     color: #1A1A1A;
 }
+.round{
+    border-radius: 50% !important;
+    margin: 5px;
+}
 nav{
     padding: 15px;
     background-color: #FBCE01 !important;  

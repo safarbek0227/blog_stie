@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
+    'ckeditor_uploader',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -63,6 +65,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'main.context_pro.view_all'
             ],
         },
     },
@@ -81,7 +84,7 @@ DATABASES = {
     }
 }
 
-
+CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -112,6 +115,20 @@ USE_I18N = True
 
 USE_TZ = True
 
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'skin': 'moono',
+        'height': 300,
+        'width': "100%",
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source']
+        ]
+    }
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
@@ -120,6 +137,8 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 
 STATICFILES_DIRS = (
   os.path.join(BASE_DIR, 'staticfiles')) ,

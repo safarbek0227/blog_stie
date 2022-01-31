@@ -1,19 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
+{% autoescape off %}
 <div class="container p-5">
     <div class="card bg-yellow">
         <div class="card-content">
             <div class="title">
-                    {{Post.title}}
+                   <h1 class="h1"> {{Post.title}}</h1>
             </div>
             <hr>
             <div class="content is-size-5 mt-5">
-                {{Post.post}}
+               {{Post.post}}
+               <br><br>
             </div>
             <hr>
-            <ul class="is-size-5">
-                <li>like <i class="fas fa-heart text-danger"></i>:</li>
-                <li>comment <i class="fas fa-eye text-primary"></i>:</li>
+            <ul class="d-flex float-right">
+                <li class="m-2">like <i class="fas fa-heart text-danger"></i>:{{Post.like}}</li>
+                <li class="m-2">comment <i class="fas fa-eye text-primary"></i>:8</li>
             </ul>
            </div>
     
@@ -36,4 +38,4 @@
     
     </div>
 </div>
-{% endblock %}
+{% endautoescape %} {% endblock %}

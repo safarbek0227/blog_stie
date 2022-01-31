@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+{% autoescape off %}
 <section class="about container">
     <div class="columns mt-5">
         <div class="column p-5">
@@ -17,6 +18,10 @@
             </button>
         </div>
         <div class="column">
+            <a class="button is-link text-light" href="/">All</a>
+            {% for tags in tag %}
+            <a class="button is-link text-light" href="/tag/{{tags.slug}}">{{tags}}</a>
+            {% endfor %}
         </div>
     </div>
 </section>
@@ -70,10 +75,10 @@
                     <div class="col-sm-12 col-md-8 col-lg-8">
                         <div class="card-content">
                             <div class="content">
-                                <h1 class="h1"><a href="post/{{blogs.slug}}" class="has-text-dark">{{blogs.title}}</a></h1>
+                                <h1 class="h1"><a href="/post/{{blogs.slug}}" class="has-text-dark">{{blogs.title}}</a></h1>
                                 <h4 class="h4">
                                     <br>
-                                    <a href="post/{{blogs.slug}}" class="has-text-dark"> {{blogs.post | slice:90}}...</a>
+                                    <a href="/post/{{blogs.slug}}" class="has-text-dark"> {{blogs.post | slice:90}}...</a>
                                   
                                 </h4>
 
@@ -105,4 +110,4 @@
 </section>
 
 <br><br>
-{% endblock %}
+{% endautoescape %} {% endblock %}
