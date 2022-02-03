@@ -1,11 +1,7 @@
-from unicodedata import name
 from django.urls import path
-from django.contrib.auth.views import LoginView,LogoutView
-from .views import *
+from .import views
 
 app_name = "main"
 urlpatterns = [
-    path('', HomeView.as_view(), name='Blog'),
-    path('post/<slug>/', PostView, name= 'post'),
-    path('tag/<slug>/', TagView, name='tag')
+    path('', views.homeView, name="index"),
 ]

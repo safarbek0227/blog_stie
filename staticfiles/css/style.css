@@ -1,0 +1,229 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap");
+
+body {
+    width: 100vw;
+    overflow-x: hidden;
+    color: #3B3B3B;
+    font-family: 'Segoe UI Historic';
+}
+
+.navbar {
+    width: 100vw;
+    padding: 5px 16px;
+    position: fixed;
+    border-radius: 0;
+    border: none;
+    box-shadow: 0 0 10px #3B3B3B33;
+}
+
+.navbar img {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    margin-right: 10px;
+}
+
+.navbar .navbar-brand {
+    color: #1d1d1d;
+    padding-left: 0;
+    padding-right: 50px;
+    font-size: 24px;
+}
+
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus {
+    color: #3B3B3Be1;
+}
+
+.navbar .navbar-brand i {
+    font-size: 25px;
+    margin-right: 5px;
+}
+
+.search-box .input-group-addon {
+    min-width: 35px;
+    border: none;
+    background: transparent;
+    position: absolute;
+    right: 0;
+    z-index: 9;
+    padding: 10px 7px;
+    height: 100%;
+}
+
+.search-box i {
+    color: #3B3B3B;
+    font-size: 19px;
+}
+
+.navbar .nav-item i,
+.navbar .nav-item a{
+    color: #3B3B3B;
+    font-size: 18px;
+}
+.navbar .nav-item button{
+    width: 105px;
+    height: 40px;
+    padding: 5px; 
+    font-size: large;
+    color: #1d1d1d;
+    background-color: #fff;
+    border: 1px solid #1d1d1d;
+    outline: #FFCD2D22;
+}
+.navbar .nav-item span {
+    position: relative;
+    top: 3px;
+}
+
+.navbar .navbar-nav > a {
+    color: #3B3B3B;
+    padding: 8px 15px;
+    font-size: 14px;
+}
+
+.navbar .navbar-nav>a:hover,
+.navbar .navbar-nav>a:focus {
+    text-shadow: 0 0 2px #3B3B3B44;
+}
+
+.navbar .navbar-nav>a>i {
+    display: block;
+    text-align: center;
+}
+
+.navbar .dropdown-item i {
+    font-size: 16px;
+    min-width: 22px;
+}
+
+.navbar .dropdown-item .material-icons {
+    font-size: 21px;
+    line-height: 16px;
+    vertical-align: middle;
+    margin-top: -2px;
+}
+
+.navbar .nav-item.open>a,
+.navbar .nav-item.open>a:hover,
+.navbar .nav-item.open>a:focus {
+    color: #fff;
+    background: none !important;
+}
+
+.navbar .dropdown-menu a:hover,
+.navbar .dropdown-menu a:focus {
+    color: #333 !important;
+    background: transparent !important;
+}
+
+.navbar .navbar-nav .active a,
+.navbar .navbar-nav .active a:hover,
+.navbar .navbar-nav .active a:focus {
+    color: #fff;
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
+    background: transparent !important;
+}
+
+.navbar .navbar-nav .user-action {
+    padding: 9px 15px;
+    font-size: 15px;
+}
+
+.navbar .navbar-toggle,
+.navbar .navbar-toggler i {
+    border-color: #3B3B3B;
+    color: #3B3B3B;
+}
+
+.navbar .navbar-toggle .icon-bar {
+    background: #3B3B3B;
+}
+
+.navbar .navbar-toggle:focus,
+.navbar .navbar-toggle:hover {
+    background: #3B3B3B;
+}
+
+
+
+@media (min-width: 1200px) {
+    .form-inline .input-group {
+        width: 480px;
+        margin-left: 30px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .navbar .navbar-nav>a>i {
+        display: inline-block;
+        text-align: left;
+        min-width: 30px;
+        position: relative;
+        top: 4px;
+    }
+
+    .navbar .navbar-collapse {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .navbar .navbar-nav {
+        margin: 8px 0;
+    }
+
+    .navbar .navbar-toggle {
+        margin-right: 0;
+    }
+
+}
+.h0{
+    font-size: 400%;
+}
+.bl-1{
+    border-left: 2px solid #3B3B3B;
+    padding-left: 10px;
+    margin-bottom: 10vh;
+}
+.result{
+    margin-top: 25px;
+    position: absolute;
+    background-color: #fff;
+    z-index: 15;
+}
+.result .item{
+    z-index: 4;
+    border: 1px solid #3B3B3B;
+    width: 350px;
+    border-radius: 5px;
+}
+.container .form-control{
+    width: 350px;
+}
+.container span{
+    min-width: 35px;
+    border: none;
+    background: transparent;
+    position: absolute;
+    z-index: 9;
+    margin-top: -30px;
+    margin-left: 325px;
+}
+h2 > strong{
+    font-size: 56px;
+}
+.col-lg-4:hover{
+    background-color: #fff;
+
+    box-shadow: 0 0 5px #FFCD2D;
+}
+.img{
+    width: 90%;
+}
+footer{
+    font-family: 'Segoe Print' !important;
+}
+li a{
+    color: #FFCD2D;
+}
