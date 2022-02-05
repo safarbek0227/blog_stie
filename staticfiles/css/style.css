@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap");
-
+::selection {
+    color: #3B3B3B;
+    background: #FFCD2D;
+  }
 body {
     width: 100vw;
     overflow-x: hidden;
@@ -213,11 +216,7 @@ body {
 h2 > strong{
     font-size: 56px;
 }
-.col-lg-4:hover{
-    background-color: #fff;
 
-    box-shadow: 0 0 5px #FFCD2D;
-}
 .img{
     width: 90%;
 }
@@ -226,4 +225,31 @@ footer{
 }
 li a{
     color: #FFCD2D;
+}
+
+
+.comment-wrapper .panel-body {
+    max-height:650px;
+    overflow:auto;
+}
+
+.comment-wrapper .media-list .media img {
+    width:64px;
+    height:64px;
+    border:2px solid #e5e7e8;
+}
+
+.comment-wrapper .media-list .media {
+    border-bottom:1px dashed #efefef;
+    margin-bottom:25px;
+}
+.img-circle{
+    border-radius: 50% !important;
+}
+.bg-yellow{
+    background-color: #FFCD2D;
+}
+.mini-tag{
+    margin: 5px !important; 
+    margin-top: -10px !important;
 }

@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+{% autoescape off %}
+<br>
+<br>
+<br>
+<br>
+<div>
+  <div class="row mx-5 p-1">
+    <div class="col-md-6">
+      <div class=" text-left uim-icon-primary mt-4">
+
+        <h2 class="f-18 mt-4">{{post.name}}</h2>
+
+        <p class="text-dark mt-3 mb-0">
+          {{post.description}}
+        </p>
+
+      </div>
+      <br>
+    </div>
+    <div class="col-md-6  order-first order-md-last">
+      <img src="{{post.image.url}}" alt="" class="img m-4">
+    </div>
+  </div>
+</div>
+<hr>
+    <div class="row bootstrap snippets bootdeys mx-lg-5 mx-0 px-lg-5 px-sm-0">
+      <div class="col-md-8 col-sm-12">
+        <div class="comment-wrapper">
+          <div class="panel panel-warning">
+            <div class="panel-heading bg-yellow text-dark">
+              Comment panel
+            </div>
+            <div class="panel-body">
+
+              <div class="clearfix"></div>
+              <hr>
+              {% if not comment%}
+              <ul class="media-list">
+                <li class="media pl-4">
+                  <h4>there not comment...</h4>
+                </li>
+              {% else %}
+              {% for comments in comment %}
+              <ul class="media-list">
+                <li class="media pl-4">
+                  <a href="#" class="pull-left">
+                    <img src="/static/img/60111.jpg" alt="" class="img-circle">
+                  </a>
+                  <div class="media-body pl-5">
+                    <strong class="text-warning">{{comments.name}}</strong>
+                    <span class="text-muted pull-right">
+                      <small class="text-muted">{{comments.created_on}}</small>
+                    </span>
+                    <p>
+                      {{comments.body}}
+                    </p>
+                  </div>
+                </li>
+               
+              </ul>
+              {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+</section>
+<br><br>
+<section class="contact mx-lg-5">
+  <div class="row mx-5">
+    <div class="col-xl-6 col-lg-12 col-md-12">
+      <h3>O'z izohlaringizni qoldiring</h3>
+      <br>
+      <br>
+      <form action="" method="post">
+        {% csrf_token %}
+        <div class="field">
+          <label class="label">Name</label>
+          <div class="control has-icons-left has-icons-right">
+            {{form.name}}
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+            <span class="icon is-small is-right">
+              <i class="fas fa-check"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Email</label>
+          <div class="control has-icons-left has-icons-right">
+            {{form.email}}
+            <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+            <span class="icon is-small is-right">
+              <i class="fas fa-exclamation-triangle"></i>
+            </span>
+          </div>
+          <p class="help ">This email is invalid</p>
+        </div>
+
+
+        <div class="field">
+          <label class="label">Message</label>
+          <div class="control">
+            {{form.body}}
+          </div>
+        </div>
+        <button type="submit" class="button btn-warning has-text-light" >submit</button>
+      </form>
+      
+    </div>
+    <div class="col-xl-6 col-lg-12 col-md-12 order-md-first order-last">
+      <img src="/static/img/comment.png" alt=""  class="w-90 m-5" >
+    </div>
+  </div>
+</section>
+<br><br>
+{% endautoescape %}
+{% endblock %}
