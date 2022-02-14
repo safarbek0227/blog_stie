@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<br><br><br>
+<section class="contact mx-5 mx-lg-5 mx-sm-2">
+    <div class="row">
+      <div class="col-xl-6 col-lg-12 col-md-12">
+        <h1>Lorem ipsum dolor sit.</h1>
+        <br>
+        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos animi eligendi odit, aperiam assumenda ipsum?</h3>
+        <br>
+        <form action="" method="get">
+            
+          <div class="field">
+            <label class="label" name="name">Name</label>
+            <div class="control">
+                <input type="text" name="name" class="input" placeholder="ismingiz" maxlength="80" required id="id_name">
+            </div>
+          </div>
+          
+          <div class="field">
+            <label class="label" name="gmail">Email</label>
+            <div class="control has-icons-left has-icons-right">
+                <input type="email" name="email" class="input" placeholder="email" maxlength="254" requiredid="id_email">
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fas fa-exclamation-triangle"></i>
+              </span>
+            </div>
+            <p class="help ">This email is invalid</p>
+          </div>
+          
+          
+          <div class="field">
+            <label class="label" name="body">Message</label>
+            <div class="control">
+                <textarea name="body" cols="50" rows="4" class="textarea" placeholder="Your comment..." required="" id="id_body"></textarea>
+            </div>
+          </div>
+          <button type="submit" class="button btn-warning has-text-light" >submit</button>
+        </form>
+      </div>
+      <div class="col-xl-6 col-lg-12 col-md-12">
+        <img src="/static/img/3946511.jpg" alt="" class="img">
+      </div>
+    </div>
+  </section>
+<script>
+    window.onload = function () {
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
+};
+
+</script>
+{% endblock %}

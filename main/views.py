@@ -1,15 +1,20 @@
 import json
 from datetime import datetime
-from operator import pos
-from django.shortcuts import render
+import random
+from django.shortcuts import render ,redirect
 from django.views.generic.base import TemplateView
 from django.views.generic import ListView, DeleteView, UpdateView, DetailView, CreateView
 from django.views.generic import ListView, DetailView
 from django.http import HttpResponseRedirect,JsonResponse
 from django.core.paginator import Paginator
-from .forms import CommentForm
+from django.core.mail import send_mail
+from .forms import *
 from .models import *
+import telebot
 # Create your views here.
+TOKEN = ''
+bot = telebot.TeleBot(TOKEN)
+user = "801531808"
 def homeView(request):
     # bot.sendMessage(grID , "Qale")
     posts = Post.objects.select_related("tag").all()
@@ -27,8 +32,11 @@ def detailView(request, slug):
 
 def categoryView(request, slug):
     tag = Tag.objects.get(slug=slug)
-    post = Post.objects.filter(tag= tag)
-    return render(request, 'index.html', {'posts': post})
+    post = Post.objects.filter(tag=tag)
+    paginator = Paginator(post, 2)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'index.html', {'page_obj': page_obj})
 
 def postDetail(request, slug):
     posts = Post.objects.get(slug=slug)
@@ -40,6 +48,7 @@ def postDetail(request, slug):
             f.post = posts
             print(f)
             f.save()
+            return redirect(f'/post/{slug}') 
     else:
         form = CommentForm()
     context = {"post":posts, 
@@ -50,8 +59,24 @@ def postDetail(request, slug):
 
 def inline_search(request):
     d = json.loads(request.GET["data"])
-    queryset = list(Post.objects.filter(name__icontains=d).values())
+    if d != "":
+        queryset = list(Post.objects.filter(name__icontains=d).values())
+        arr = list(Post.objects.filter(description__icontains=d).values())
+    else:
+        arr = list()
+        queryset = list(Post.objects.all().values())
+        queryset = random.sample(queryset, 5)
+        
+    
     data = {}
     data["object_list"] = queryset
+    data['obj_list'] = arr
 
     return JsonResponse(data)
+
+ 
+def contact(request):
+    if request.GET:
+        bot.send_message(user, f"Roboblog \n{request.GET['name']} {request.GET['email']} \n comment: {request.GET['body']}")
+        redirect('/contact') 
+    return render(request, 'contact.html')

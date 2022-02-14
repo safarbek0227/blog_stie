@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 {% autoescape off %}
-<section class="mx-5">
+<section class="container">
     <br><br>
     <div class="row">
       <div class="col-lg-6 col-md-12 p-3">
@@ -14,8 +14,8 @@
         <h3 class="h3 bl-1">Bizning blogimiz songi robototexnika sohasida oid yangiliklarni berib boradi</h3>
         <h4>O'zingizda kerakli maqolalarni oling</h4>
         <br><br>
-        <button class="btn btn-warning text-light">biz haqimizda</button>
-        <button class="btn btn-dark text-light">Creator</button>
+        <button class="btn btn-warning"><a href="http://127.0.0.1:3000/" class="text-light" target="__blank">Biz haqimizda</a></button>
+        <button class="btn btn-dark text-light"><a href="https://t.me/developer_safarbek" class="text-light" target="__blank">Creator</a></button>
         
      </div>
     </div>
@@ -27,15 +27,54 @@
             <div class="col-lg-6">
                 <div class="title-box text-center">
 
-                    <h3 class="title-heading mt-3">Songi maqolalar</h3>
+                    <h3 class="title-heading mt-3">So'ngi maqolalar</h3>
                 </div>
             </div>
         </div>
 
 
         <div class="row mt-2 mx-lg-5 mx-0">
+          <div class="col-lg-5 order-first order-lg-last order-md-first pl-0 pl-lg-4">
+            <nav class="w-100 panel">
+              <p class="panel-heading bg-yellow">
+                Repositories
+              </p>
+              <div class="panel-block">
+                <form class="panel-block" id="searchForm" action="#" method="get" onkeyup="InlineSearch(this[0].value)">
+                  <p class="control">
+                      <input class="input is-success" type="text" placeholder="Ha , qidiramiz.">
+                  </p>
+              </form>
+              </div>
+              <div id="result-list">
+                {%for  random in randoms %}             
+                <a href="/post/{{random.slug}}" class="panel-block is-active">
+                    <h5>
+                      <i class="fas fa-tag has-text-info mx-1"></i>
+                      {{random.name | slice:'25'}}
+                    </h5>
+                </a>  
+              {% endfor %}    
+
+              </div>
+            </nav>
+            <br><br>
+            <article class="panel is-info">
+              <p class="panel-heading bg-blue">
+                  TOP Turkumlar
+              </p>
+              {%for  rantag in rantags %}             
+              <a href="/tag/{{rantag.slug}}" class="panel-block is-active">
+                  <h5>
+                    <i class="fas fa-tag text-warning mx-1"></i>
+                    {{rantag.name | slice:'25'}}
+                  </h5>
+              </a>  
+              {% endfor %}         
+          </article>
+          </div>
           
-          <div class="col-lg-7 p-3 mx-lg-5 mx-0">
+          <div class="col-lg-7 p-3 mx-0">
             {% for post in page_obj %}
               <div class="row panel">
                 <div class="col-md-6">
@@ -48,8 +87,6 @@
                       {{post.description | slice:"200"}}
                     </p>
                     <ul>
-                      <li>like: {{post.like}}</li>
-                      <li>view: {{post.view}}</li>
                       <li>
                         turkumu:
                         <span class="tag is-large mini-tag">
@@ -61,7 +98,7 @@
                     
                   </div>
                   <br>
-                  <a href="/" class="btn mb-5" style="background: #FFC033;">read more</a>
+                  <a href="/post/{{post.slug}}" class="btn mb-5" style="background: #FFC033;">Ko'proq o'qish</a>
                 </div>
                 <div class="col-md-5  order-first order-md-last">
                   <img src="{{post.image.url}}" alt="" class="w-100">
@@ -69,48 +106,7 @@
               </div>
               <br>
               {% endfor %}
-            </div>
-            <div class="col-lg-4 order-first order-md-last p-0">
-              <nav class="w-100 panel">
-                <p class="panel-heading bg-yellow">
-                  Repositories
-                </p>
-                <div class="panel-block">
-                  <form class="panel-block" id="searchForm" action="#" method="get" onkeyup="InlineSearch(this[0].value)">
-                    <p class="control has-icons-left">
-                        <input class="input is-success" type="text" placeholder="Ha , qidiramiz.">
-                    </p>
-                </form>
-                </div>
-                <div id="result-list">
-                  {%for  random in randoms %}             
-                  <a href="/post/{{random.slug}}" class="panel-block is-active">
-                      <h5>
-                        <i class="fas fa-tag has-text-info mx-1"></i>
-                        {{random.name | slice:'25'}}
-                      </h5>
-                  </a>  
-                {% endfor %}    
-
-                </div>
-              </nav>
-              <br><br>
-              <article class="panel is-info">
-                <p class="panel-heading bg-blue">
-                    TOP Turkumlar
-                </p>
-                {%for  rantag in rantags %}             
-                <a href="/tag/{{rantag.slug}}" class="panel-block is-active">
-                    <h5>
-                      <i class="fas fa-tag text-warning mx-1"></i>
-                      {{rantag.name | slice:'25'}}
-                    </h5>
-                </a>  
-                {% endfor %}         
-            </article>
-            </div>
-        
-
+            </div>     
         </div>
         <br><br>
         <div class="container ml-5">

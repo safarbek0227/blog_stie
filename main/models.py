@@ -1,4 +1,5 @@
 from ast import Delete
+from aiohttp import request
 from django.db import models
 from django.db import models
 from django.shortcuts import reverse
@@ -24,6 +25,9 @@ class Post(models.Model):
     description = RichTextField("About product")
     like = models.PositiveIntegerField('like', default=0)
     view = models.PositiveIntegerField('views', default=0)
+    class Meta:
+        ordering = ["-id"]
+
     def __str__(self):
         return self.name
 

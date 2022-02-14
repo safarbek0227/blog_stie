@@ -6,5 +6,6 @@ urlpatterns = [
     path('', views.homeView, name="index"),
     path("post/<slug>", views.postDetail, name='post'),
     path('tag/<slug>', views.categoryView, name="index"),
-    path("search/", views.inline_search, name="search"),   
+    path("search/", views.inline_search, name="search"), 
+    path("contact/", views.contact, name='contact'),  
 ]
