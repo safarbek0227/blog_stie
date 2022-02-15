@@ -12,7 +12,7 @@ from .forms import *
 from .models import *
 import telebot
 # Create your views here.
-TOKEN = ''
+TOKEN = '5188135218:AAET1_O7rodv75Uo2onGHhM4JdQMDhIhI7w'
 bot = telebot.TeleBot(TOKEN)
 user = "801531808"
 def homeView(request):
