@@ -1,4 +1,3 @@
-import email
 from django.forms import EmailInput, ModelForm
 from .models import Comment
 from django.forms.widgets import TextInput, Textarea

@@ -29,7 +29,7 @@ function InlineSearch(query) {
                 obj = data.obj_list[i]
                 let panel = ` <a href="/post/${obj.slug}" class="panel-block is-active">
                                     <h5>
-                                    <i class="fas fa-tag has-text-info mx-1"></i>
+                                    <i class="fas fa-tag has-text-info mx-1"></i>${obj.name}
                                     ${obj.description.slice(0, 100)}
                                     </h5>
                                 </a>`

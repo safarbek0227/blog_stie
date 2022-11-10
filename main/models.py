@@ -1,5 +1,4 @@
 from ast import Delete
-from aiohttp import request
 from django.db import models
 from django.db import models
 from django.shortcuts import reverse
@@ -14,6 +13,8 @@ class Tag(models.Model):
 
     class Meta:
         ordering = ["id"]
+        unique_together = ["slug"]
+
     def __str__(self):
         return self.name
     
@@ -27,6 +28,7 @@ class Post(models.Model):
     view = models.PositiveIntegerField('views', default=0)
     class Meta:
         ordering = ["-id"]
+        unique_together = ["slug"]
 
     def __str__(self):
         return self.name
